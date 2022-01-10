@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="VIC">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../VIC/jars/VIC.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

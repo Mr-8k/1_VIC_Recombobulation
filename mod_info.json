@@ -1,0 +1,17 @@
+{
+  "id":"1 - VIC recombobulation",
+  "name":"1 - VIC recombobulation",
+  "author":"that one guy",
+  "version":"1.1.0",
+  "description":"fuck me jerry",
+  "gameVersion":"0.95.1a-RC6",
+  "jars":["jars/VIC_RE.jar"],
+  "dependencies":[
+    {"id":"vic", "name":"VIC", "version":{"major":1, "minor":3, "patch":4}}
+],
+  "replace": [
+    "data\\weapons\\proj\\vic_heavylaidlawaccelerator_shot.proj",
+	"data\\weapons\\proj\\vic_laidlawMassDriver_shot.proj"
+],
+  "utility":"true",
+}

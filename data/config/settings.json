@@ -1,0 +1,8 @@
+{
+
+	"plugins":{
+		"vic_coolPlugin":"data.scripts.plugins.listenerattacher"
+	}
+
+}
+	

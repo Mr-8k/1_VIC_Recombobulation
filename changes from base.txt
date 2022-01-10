@@ -1,0 +1,21 @@
+Laidlaws
+	-Now deal hard flux again
+	-Reverted to energy damage
+	-Projectile speed up (to 3000, 6000 was clipping too much)
+	-Perfect accuracy, charge up period removed
+	-Refire rate changed to once every 3 seconds
+	-Efficiency improved to 1.25/1.3/1.3 for large/medium/small mounts respectively
+	-Bonus fragmentation on-hit to 150/300 from 250/500
+
+Shturm overhaul
+    -Now always grants dissipation bonus
+    -No erroneous mention of shield flux reduction hullmods not working
+
+
+
+Deprecated:
+
+-VIC Fortress upgrade 
+	-Now costs 40/24/16/8 OP (increased)
+	-Shield unfold maluses are now bonuses
+	-Shield resistance increased from 35% to 40%
