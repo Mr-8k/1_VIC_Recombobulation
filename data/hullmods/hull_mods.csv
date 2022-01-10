@@ -1,12 +1,2 @@
 name,id,tier,rarity,tech/manufacturer,tags,uiTags,base value,unlocked,hidden,hiddenEverywhere,cost_frigate,cost_dest,cost_cruiser,cost_capital,script,desc,short,sprite
-"#VIC ""Fortress"" Protocol",vic_allRoundShieldUpgrade,3,,Volkov Industries,offensive,Shields,25000,,,,8,16,24,40,data.hullmods.vic_allRoundShieldUpgrade_butCooler,"Reduces the amount of damage taken by shields by %s.
-Greatly reduces the chance that shields will be pierced by EMP arcs.
-Increases the amount of soft flux the raised shields generate per second by %s
-Increases the turn rate of the ship's shields by %s and the rate at which the shields are raised by %s.
-Reduces max speed by %s.
-Increases 0-flux boost speed bonus by %s.
-
-Incompatible with Hardened Shields and Safety Overrides.
-
-If installed on VIC ships with other modular VIC hullmods (containing VIC prefix in the name) reduces the maximum speed by %s.",,graphics/hullmods/vic_shiledPack.png
 "A-Series ""Shturm"" Protocol",vic_ShturmSolution,1,,Volkov Industries,offensive,Weapons,5000,,,,5,10,15,25,data.hullmods.NotVic_assaultVariant,"The A-series a.k.a. ""Shturm"" line of VIC ships is designed  with a specific set of technological solutions, giving them an edge in frantic close combat. The installation of this hullmod activates said solutions and severely reconfigures the ship's energy and weapon systems.",,graphics/hullmods/vic_shturmFrame.png
