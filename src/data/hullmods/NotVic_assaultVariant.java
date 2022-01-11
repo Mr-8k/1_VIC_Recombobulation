@@ -19,7 +19,7 @@ import java.util.Set;
 public class NotVic_assaultVariant extends BaseHullMod {
 
     final float
-            shieldUpKeep = 2f,
+            shieldUpKeep = 4f,
             disBonus = 2f,
             systemRechargeBonus = 50f,
             rangeReduction = 0.75f,

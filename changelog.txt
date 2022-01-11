@@ -1,3 +1,6 @@
+1.1.2
+    -Shturm shield upkeep multiplier to x4 from x2
+
 1.1.1
     -Fortress protocol actually reverted to vanilla, dunno why hashtags aren't working
 
