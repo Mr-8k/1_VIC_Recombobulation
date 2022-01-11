@@ -1,2 +1,5 @@
+1.1.1
+    -Fortress protocol actually reverted to vanilla, dunno why hashtags aren't working
+
 1.1.0
     -First GitHub release
