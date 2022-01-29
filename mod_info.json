@@ -2,12 +2,12 @@
   "id":"1 - VIC recombobulation",
   "name":"1 - VIC recombobulation",
   "author":"that one guy",
-  "version":"1.1.2",
+  "version":"1.1.3",
   "description":"fuck me Dhunt05",
   "gameVersion":"0.95.1a-RC6",
   "jars":["jars/VIC_RE.jar"],
   "dependencies":[
-    {"id":"vic", "name":"VIC", "version":{"major":1, "minor":3, "patch":4}}
+    {"id":"vic", "name":"VIC", "version":{"major":1, "minor":4, "patch":3}}
 ],
   "replace": [
     "data\\weapons\\proj\\vic_heavylaidlawaccelerator_shot.proj",

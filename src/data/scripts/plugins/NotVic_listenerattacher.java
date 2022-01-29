@@ -10,7 +10,7 @@ import com.fs.starfarer.api.util.IntervalUtil;
 
 import java.util.List;
 
-public class listenerattacher extends BaseEveryFrameCombatPlugin {
+public class NotVic_listenerattacher extends BaseEveryFrameCombatPlugin {
 
     private final IntervalUtil globalTimer=new IntervalUtil(0.05f,0.05f);
 
@@ -37,8 +37,8 @@ public class listenerattacher extends BaseEveryFrameCombatPlugin {
                                 if (weapon.getId().equals("vic_heavylaidlawaccelerator")
                                         || weapon.getId().equals("vic_lightlaidlawaccelerator")
                                         || weapon.getId().equals("vic_laidlawMassDriver"))
-                                    if (!p.hasListenerOfClass(vic_weaponDamageListener_butcooler.class))
-                                        p.addListener(new vic_weaponDamageListener_butcooler());
+                                    if (!p.hasListenerOfClass(NotVic_weaponDamageListener.class))
+                                        p.addListener(new NotVic_weaponDamageListener());
                     }
                 }
             }

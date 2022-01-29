@@ -9,7 +9,10 @@ Laidlaws
 
 Shturm overhaul
     -Now always grants dissipation bonus
-    -No erroneous mention of shield flux reduction hullmods not working
+    -Can still install stabilized shields
+    -4x (from 2x) shield upkeep to compensate
+    -Fixed erroneous mention of incompatibility with stabilized shields
+
 
 
 
@@ -19,3 +22,6 @@ Deprecated:
 	-Now costs 40/24/16/8 OP (increased)
 	-Shield unfold maluses are now bonuses
 	-Shield resistance increased from 35% to 40%
+
+Laidlaw Tech
+     -Tooltip fixed

@@ -6,7 +6,6 @@ import com.fs.starfarer.api.combat.MutableShipStatsAPI;
 import com.fs.starfarer.api.combat.MutableStat;
 import com.fs.starfarer.api.combat.ShipAPI;
 import com.fs.starfarer.api.ui.Alignment;
-import com.fs.starfarer.api.ui.LabelAPI;
 import com.fs.starfarer.api.ui.TooltipMakerAPI;
 import com.fs.starfarer.api.util.Misc;
 
@@ -16,7 +15,7 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-public class NotVic_assaultVariant extends BaseHullMod {
+public class NotVic_shturmProtocol extends BaseHullMod {
 
     final float
             shieldUpKeep = 4f,
@@ -26,14 +25,16 @@ public class NotVic_assaultVariant extends BaseHullMod {
             pptReduction = 0.5f;
 
     private final Map<ShipAPI.HullSize, Float> rangeForClamp = new HashMap<>();
+
     {
         rangeForClamp.put(ShipAPI.HullSize.FRIGATE, 500f);
         rangeForClamp.put(ShipAPI.HullSize.DESTROYER, 700f);
         rangeForClamp.put(ShipAPI.HullSize.CRUISER, 900f);
         rangeForClamp.put(ShipAPI.HullSize.CAPITAL_SHIP, 1100f);
     }
-    
+
     private final Map<ShipAPI.HullSize, Float> rangeBonus = new HashMap<>();
+
     {
         rangeBonus.put(ShipAPI.HullSize.FRIGATE, 100f);
         rangeBonus.put(ShipAPI.HullSize.DESTROYER, 150f);
@@ -42,6 +43,7 @@ public class NotVic_assaultVariant extends BaseHullMod {
     }
 
     private final Map<ShipAPI.HullSize, Float> speedBonus = new HashMap<>();
+
     {
         speedBonus.put(ShipAPI.HullSize.FRIGATE, 20f);
         speedBonus.put(ShipAPI.HullSize.DESTROYER, 15f);
@@ -50,6 +52,7 @@ public class NotVic_assaultVariant extends BaseHullMod {
     }
 
     private static final Set<String> BLOCKED_HULLMODS = new HashSet<>(2);
+
     static {
         BLOCKED_HULLMODS.add("safetyoverrides");
         //BLOCKED_HULLMODS.add("stabilizedshieldemitter");
@@ -58,27 +61,50 @@ public class NotVic_assaultVariant extends BaseHullMod {
 
     @Override
     public void applyEffectsBeforeShipCreation(ShipAPI.HullSize hullSize, MutableShipStatsAPI stats, String id) {
-        stats.getBallisticWeaponRangeBonus().modifyFlat(id , rangeBonus.get(hullSize));
-        stats.getEnergyWeaponRangeBonus().modifyFlat(id , rangeBonus.get(hullSize));
-        stats.getWeaponRangeThreshold().modifyFlat(id,rangeForClamp.get(hullSize));
+        stats.getBallisticWeaponRangeBonus().modifyFlat(id, rangeBonus.get(hullSize));
+        stats.getEnergyWeaponRangeBonus().modifyFlat(id, rangeBonus.get(hullSize));
+        stats.getWeaponRangeThreshold().modifyFlat(id, rangeForClamp.get(hullSize));
         stats.getWeaponRangeMultPastThreshold().modifyMult(id, 1 - rangeReduction);
         stats.getShieldUpkeepMult().modifyMult(id, shieldUpKeep);
         stats.getSystemCooldownBonus().modifyPercent(id, systemRechargeBonus);
         stats.getSystemRegenBonus().modifyPercent(id, systemRechargeBonus);
         stats.getMaxSpeed().modifyFlat(id, speedBonus.get(hullSize));
         stats.getPeakCRDuration().modifyMult(id, pptReduction);
-        stats.getFluxDissipation().modifyMult(id, disBonus);
+        if (stats.getShieldUpkeepMult() != null) {
+            stats.getFluxDissipation().modifyMult("vic_shturmProtocol", disBonus);
+        }
     }
 
 
-/*    @Override
+    @Override
     public void advanceInCombat(ShipAPI ship, float amount) {
-        if (ship.getShield().isOff() && ship.getOriginalOwner() != -1){
-            ship.getMutableStats().getFluxDissipation().modifyMult("vic_assaultVariant", disBonus);
-        } else {
-            ship.getMutableStats().getFluxDissipation().unmodify("vic_assaultVariant");
+        float shieldReduction = 1;
+
+        for (Map.Entry<String, MutableStat.StatMod> stat : ship.getMutableStats().getShieldUpkeepMult().getMultMods().entrySet()) {
+            float value = stat.getValue().getValue();
+            if (value < 1) {
+                shieldReduction /= value;
+            }
         }
-    }*/
+        float percent = 0;
+        for (Map.Entry<String, MutableStat.StatMod> stat : ship.getMutableStats().getShieldUpkeepMult().getPercentMods().entrySet()) {
+            float value = stat.getValue().getValue();
+            if (value < 0) {
+                percent += value;
+            }
+        }
+        shieldReduction += 1 * percent;
+        ship.getMutableStats().getShieldUpkeepMult().modifyMult("vic_shturmProtocol2", shieldReduction);
+
+/*        if (ship.getShield() == null || ship.getShield().isOff()) {
+            ship.getMutableStats().getFluxDissipation().modifyMult("vic_shturmProtocol", disBonus);
+            if (ship == Global.getCombatEngine().getPlayerShip()) {
+                Global.getCombatEngine().maintainStatusForPlayerShip("vic_shturmProtocol", "graphics/icons/hullsys/vic_shturmFrameSus.png", "Shturm protocol", "Flux dissipation is doubled", false);
+            }
+        } else {
+            ship.getMutableStats().getFluxDissipation().unmodify("vic_shturmProtocol");
+        }*/
+    }
 
     @Override
     public void applyEffectsAfterShipCreation(ShipAPI ship, String id) {
@@ -92,33 +118,33 @@ public class NotVic_assaultVariant extends BaseHullMod {
 
     public boolean isApplicableToShip(ShipAPI ship) {
         MutableShipStatsAPI stats = ship.getMutableStats();
-        String id = "vic_assaultVariant";
+        String id = "vic_shturmProtocol";
         float tempStat = 0;
-        for (Map.Entry<String, MutableStat.StatMod> entry : stats.getShieldUpkeepMult().getFlatMods().entrySet()){
-            if (entry.getValue().getValue() < 0){
+        for (Map.Entry<String, MutableStat.StatMod> entry : stats.getShieldUpkeepMult().getFlatMods().entrySet()) {
+            if (entry.getValue().getValue() < 0) {
                 tempStat += entry.getValue().getValue();
             }
         }
         stats.getShieldUpkeepMult().modifyFlat(id, -tempStat);
 
         tempStat = 1;
-        for (Map.Entry<String, MutableStat.StatMod> entry : stats.getShieldUpkeepMult().getMultMods().entrySet()){
-            if (entry.getValue().getValue() < 1){
+        for (Map.Entry<String, MutableStat.StatMod> entry : stats.getShieldUpkeepMult().getMultMods().entrySet()) {
+            if (entry.getValue().getValue() < 1) {
                 tempStat *= entry.getValue().getValue();
             }
         }
-        stats.getShieldUpkeepMult().modifyMult(id, 1/tempStat);
+        stats.getShieldUpkeepMult().modifyMult(id, 1 / tempStat);
 
         tempStat = 0;
-        for (Map.Entry<String, MutableStat.StatMod> entry : stats.getShieldUpkeepMult().getPercentMods().entrySet()){
-            if (entry.getValue().getValue() < 0){
+        for (Map.Entry<String, MutableStat.StatMod> entry : stats.getShieldUpkeepMult().getPercentMods().entrySet()) {
+            if (entry.getValue().getValue() < 0) {
                 tempStat += entry.getValue().getValue();
             }
         }
         stats.getShieldUpkeepMult().modifyPercent(id, -tempStat);
         if (!ship.getHullSpec().getHullId().startsWith("vic_")) return false;
         if (!ship.getVariant().getHullMods().contains("vic_shturmSolutionDummy")) return false;
-        for (String Hmod : BLOCKED_HULLMODS){
+        for (String Hmod : BLOCKED_HULLMODS) {
             if (ship.getVariant().getHullMods().contains(Hmod)) return false;
         }
         return true;
@@ -201,7 +227,7 @@ public class NotVic_assaultVariant extends BaseHullMod {
 
         tooltip.addPara("Increases shield upkeep by a factor of %s", padS, badHighlight, "x" + Math.round(shieldUpKeep));
 
-        /*tooltip.addPara("Prevents any reduction in shield upkeep", padS, badHighlight, "any reduction");*/
+        //tooltip.addPara("Prevents any reduction in shield upkeep", padS, badHighlight, "any reduction");
 
         tooltip.addPara("Reduces the peak performance time by %s", padS, badHighlight, Math.round(pptReduction * 100f) + "%");
 
@@ -210,6 +236,6 @@ public class NotVic_assaultVariant extends BaseHullMod {
 
         tooltip.addSectionHeading("Incompatibilities", Alignment.MID, pad);
 
-        tooltip.addPara("Incompatible with Safety Overrides and Stabilized Shields", pad);
+        tooltip.addPara("Incompatible with Safety Overrides", pad);
     }
 }

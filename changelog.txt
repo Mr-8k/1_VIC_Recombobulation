@@ -1,3 +1,8 @@
+1.1.3
+    -Fix nullpointer when installing shunt
+    -Various internal renames
+    -Proj files updated
+
 1.1.2
     -Shturm shield upkeep multiplier to x4 from x2
 

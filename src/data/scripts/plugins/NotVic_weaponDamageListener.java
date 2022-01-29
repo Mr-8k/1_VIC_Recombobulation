@@ -7,7 +7,7 @@ import com.fs.starfarer.api.combat.listeners.DamageDealtModifier;
 import org.lwjgl.util.vector.Vector2f;
 
 
-public class vic_weaponDamageListener_butcooler implements DamageDealtModifier {
+public class NotVic_weaponDamageListener implements DamageDealtModifier {
 
     @Override
     public String modifyDamageDealt(Object param, CombatEntityAPI target, DamageAPI damage, Vector2f point, boolean shieldHit) {
