@@ -1,7 +1,7 @@
 {
 
 	"plugins":{
-		"vic_coolPlugin":"data.scripts.plugins.NotVic_listenerattacher"
+		"NotVic_coolPlugin":"data.scripts.plugins.NotVic_listenerattacher"
 	}
 
 }
