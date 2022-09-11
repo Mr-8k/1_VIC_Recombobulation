@@ -1,2 +1,14 @@
 name,id,tier,rarity,tech/manufacturer,tags,uiTags,base value,unlocked,hidden,hiddenEverywhere,cost_frigate,cost_dest,cost_cruiser,cost_capital,script,desc,short,sprite
 "A-Series ""Shturm"" Protocol",vic_ShturmSolution,1,,Volkov Industries,offensive,Weapons,5000,,,,5,10,15,25,data.hullmods.NotVic_shturmProtocol,"The A-series a.k.a. ""Shturm"" line of VIC ships is designed  with a specific set of technological solutions, giving them an edge in frantic close combat. The installation of this hullmod activates said solutions and severely reconfigures the ship's energy and weapon systems.",,graphics/hullmods/vic_shturmFrame.png
+Laidlaw Tech,vic_dynamicshields,1,,Volkov Industries,,Shields,,,TRUE,,0,0,0,0,data.hullmods.NotVic_dynamicShields,"Exploiting the Laidlaw Resonance effect, VIC ships are capable of using excess energy of the electromagnetic field of their engines, which increases the output of their shields and energy weaponry.
+Has following effects on the ship:
+
+Shield's arc grows up to %s degrees, the more the shield is turned to the side of the ship
+Increases shield rotation and unfolding speed by %s
+Energy weapons base range increased by %s su, doesn't affect beam weapons
+Energy weapons generate %s less flux",,graphics/hullmods/vic_laidlawTech.png
+"""Fervor"" Protocol",vic_deathProtocol,3,,Volkov Industries,offensive,Weapons,25000,,,,5,10,20,30,data.hullmods.NotVic_deathProtocol,All damage dealt increased by %s. Increases all damage taken by %s. Phase cloak activation and upkeep increased by %s.,,graphics/hullmods/vic_deathProtocol.png
+Loader Overdrive,vic_loaderOverdrive,1,,Volkov Industries,offensive,Weapons,10000,,,,3,6,9,15,data.hullmods.NotVic_loaderOverdrive,"Ballistic and energy weapons:
+- Rate of fire increased by %s
+- Flux cost reduced by %s
+- Range reduced by %s",,graphics/hullmods/vic_reloaderOvercharge.png

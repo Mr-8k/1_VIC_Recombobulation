@@ -1,3 +1,4 @@
+/*
 package data.hullmods;
 
 import com.fs.starfarer.api.combat.BaseHullMod;
@@ -91,3 +92,4 @@ public class vic_allRoundShieldUpgrade_butCooler extends BaseHullMod {
 
 
 
+*/

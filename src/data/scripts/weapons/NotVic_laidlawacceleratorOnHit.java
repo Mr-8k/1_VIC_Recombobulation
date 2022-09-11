@@ -23,7 +23,7 @@ public class NotVic_laidlawacceleratorOnHit implements OnHitEffectPlugin {
             125,
             67f,
             300,
-            150,
+            200,
             CollisionClass.PROJECTILE_FF,
             CollisionClass.PROJECTILE_FIGHTER,
             3,

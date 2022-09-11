@@ -1,3 +1,9 @@
+1.1.4
+    -fix shturm interactions
+    -Fervor has range mechanics removed, hidden phase penalty revealed
+    -Loader overdrive 15% flux cost reduction restored
+    -Laidlaw tech ballistic range penalty removed
+
 1.1.3
     -Fix nullpointer when installing shunt
     -Various internal renames

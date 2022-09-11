@@ -13,7 +13,15 @@ Shturm overhaul
     -4x (from 2x) shield upkeep to compensate
     -Fixed erroneous mention of incompatibility with stabilized shields
 
+Fervor
+    -Works at any range
+    -Hidden phase nerf now visible
 
+Loader overdrive
+    -15% flux cost reduction restored
+
+Laidlaw tech
+    -ballistic range penalty removed
 
 
 Deprecated:

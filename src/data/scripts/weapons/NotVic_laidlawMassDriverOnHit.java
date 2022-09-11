@@ -23,7 +23,7 @@ public class NotVic_laidlawMassDriverOnHit implements OnHitEffectPlugin {
             67,
             33f,
             150,
-            75f,
+            100f,
             CollisionClass.PROJECTILE_FF,
             CollisionClass.PROJECTILE_FIGHTER,
             2,

@@ -19,7 +19,7 @@ public class NotVic_dynamicShields extends BaseHullMod {
 
     @Override
     public void applyEffectsBeforeShipCreation(HullSize hullSize, MutableShipStatsAPI stats, String id) {
-        stats.getBallisticWeaponRangeBonus().modifyMult(id, ballisticRangeMult);
+        //stats.getBallisticWeaponRangeBonus().modifyMult(id, ballisticRangeMult);
         stats.getEnergyWeaponFluxCostMod().modifyMult(id, energyFluxMult);
 
         stats.getShieldUnfoldRateMult().modifyMult(id, shieldSpeed);
@@ -74,10 +74,10 @@ public class NotVic_dynamicShields extends BaseHullMod {
     public String getDescriptionParam(int index, HullSize hullSize, ShipAPI ship) {
         if (index == 0) return Math.round(arcIncrease) + "";
         if (index == 1) return Math.round((shieldSpeed - 1) * 100) + "%";
-        if (index == 2) return Math.round((1 - ballisticRangeMult) * 100) + "%";
-        if (index == 3) return Math.round(energyFlatRange) + "";
+        //if (index == 2) return Math.round((1 - ballisticRangeMult) * 100) + "%";
+        if (index == 2) return Math.round(energyFlatRange) + "";
         //if (index == 4) return Math.round(energyFlatRange) + "";
-        if (index == 4) return Math.round((1 - energyFluxMult) * 100) + "%";
+        if (index == 3) return Math.round((1 - energyFluxMult) * 100) + "%";
         return null;
     }
 
