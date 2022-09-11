@@ -18,7 +18,7 @@ Fervor
     -Hidden phase nerf now visible
 
 Loader overdrive
-    -15% flux cost reduction restored
+    -10% flux cost reduction
 
 Laidlaw tech
     -ballistic range penalty removed

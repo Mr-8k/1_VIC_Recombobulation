@@ -12,7 +12,7 @@ public class NotVic_loaderOverdrive extends BaseHullMod {
 
     private final float rangeBonus = -10f;
     private final float ROFBonus = 30f;
-    private final float fluxBonus = -15;
+    private final float fluxBonus = -10;
 
 
     public void applyEffectsBeforeShipCreation(HullSize hullSize, MutableShipStatsAPI stats, String id) {
