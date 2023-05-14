@@ -1,0 +1,16 @@
+{
+  # multiplier for how often hulls show up in the faction's fleets
+ "hullFrequency": {
+	"hulls":{
+ 			"vic_stolas":0,
+    },
+  },
+  
+
+  "knownShips":{
+		"hulls":[
+			"vic_stolas",
+		],
+	},
+  
+}

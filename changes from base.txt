@@ -23,7 +23,10 @@ Loader overdrive
 Laidlaw tech
     -ballistic range penalty removed
 
-
+Stolas/Devotee
+	-shield efficiency normalized to 1.0
+	-Stolas can now have its BP raided
+	
 Deprecated:
 
 -VIC Fortress upgrade 

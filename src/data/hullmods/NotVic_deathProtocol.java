@@ -40,9 +40,9 @@ public class NotVic_deathProtocol extends BaseHullMod {
             damageAndCloakMult = dmgTakenAndCloakCostPenaltyMult;
         }
         */
-        stats.getBallisticWeaponRangeBonus().modifyMult(id, rangePenalty);
-        stats.getEnergyWeaponRangeBonus().modifyMult(id, rangePenalty);
-        stats.getMissileWeaponRangeBonus().modifyMult(id, rangePenalty);
+        //stats.getBallisticWeaponRangeBonus().modifyMult(id, rangePenalty);
+        //stats.getEnergyWeaponRangeBonus().modifyMult(id, rangePenalty);
+        //stats.getMissileWeaponRangeBonus().modifyMult(id, rangePenalty);
         stats.getShieldDamageTakenMult().modifyMult(id, dmgTaken);
         stats.getArmorDamageTakenMult().modifyMult(id, dmgTaken);
         stats.getHullDamageTakenMult().modifyMult(id, dmgTaken);

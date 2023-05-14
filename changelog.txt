@@ -1,3 +1,9 @@
+1.1.5
+	-Stolas/Devotee shield efficiency changed to 1.0
+	-Stolas can now have its BP raided
+	-0.96 compatibility
+	-reduced fervor range fix ported from base
+
 1.1.4
     -fix shturm interactions
     -Fervor has range mechanics removed, hidden phase penalty revealed

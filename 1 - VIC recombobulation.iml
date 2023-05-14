@@ -7,10 +7,10 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="starsector-core 095" level="application" />
-    <orderEntry type="library" name="LazyLib 095" level="application" />
-    <orderEntry type="library" name="Graphics 095" level="application" />
-    <orderEntry type="library" name="MagicLib 095" level="application" />
     <orderEntry type="library" name="VIC" level="project" />
+    <orderEntry type="library" name="0.96 Graphics" level="application" />
+    <orderEntry type="library" name="0.96 LazyLib" level="application" />
+    <orderEntry type="library" name="0.96 MagicLib" level="application" />
+    <orderEntry type="library" name="0.96 Starsector" level="application" />
   </component>
 </module>
